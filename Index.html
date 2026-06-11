@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>There Is a Light — Floricultura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="main-nav">
+  <a class="nav-logo" href="#hero">There Is a <span>Light</span></a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#reserva">Reservar</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="vinyl-wrap"><div class="vinyl"></div></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Floricultura artesanal · desde 2014</p>
+    <h1 class="hero-title">
+      There Is a Light<br>That Never Goes Out
+      <em>e ela está nas suas flores.</em>
+    </h1>
+    <p class="hero-sub">Arranjos feitos à mão com flores que duram na memória muito depois de murcharem.</p>
+    <div class="hero-actions">
+      <a href="#pedido" class="btn-primary">Fazer pedido</a>
+      <a href="#produtos" class="btn-ghost">Ver opções</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOBRE ── -->
+<section id="sobre">
+  <div class="section-inner">
+    <div class="sobre-grid">
+      <div class="reveal">
+        <p class="section-label">Quem somos</p>
+        <blockquote class="sobre-quote">
+          "Cada flor é uma canção que o jardim canta uma única vez."
+        </blockquote>
+        <div class="sobre-text">
+          <p>Nascemos do amor por belezas que não duram para sempre — justamente por isso. A There Is a Light é uma floricultura independente especializada em arranjos únicos, buquês sob medida e decorações florais para ocasiões que merecem ser lembradas.</p>
+          <p>Trabalhamos com flores da estação, cultivadas por produtores locais. Nada de importado plástico. Tudo com textura, cheiro e alma.</p>
+          <p>Cada pedido é tratado como uma composição: ouvimos o que você quer sentir, e criamos algo que fala por si só.</p>
+        </div>
+        <div class="divider"></div>
+        <a href="#reserva" class="btn-ghost">Quero reservar</a>
+      </div>
+      <div class="sobre-visual reveal reveal-delay-2">
+        <div class="sobre-stat">
+          <div class="sobre-stat-num">3.400+</div>
+          <div class="sobre-stat-label">arranjos entregues</div>
+        </div>
+        <div class="sobre-stat">
+          <div class="sobre-stat-num">11 anos</div>
+          <div class="sobre-stat-label">de floricultura artesanal</div>
+        </div>
+        <div class="sobre-stat">
+          <div class="sobre-stat-num">100%</div>
+          <div class="sobre-stat-label">flores de produtores locais</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRODUTOS ── -->
+<section id="produtos">
+  <div class="section-inner">
+    <p class="section-label reveal">Catálogo</p>
+    <h2 class="section-title reveal reveal-delay-1">O que oferecemos<em> — e muito mais.</em></h2>
+    <div class="produtos-grid">
+
+      <div class="produto-card reveal">
+        <span class="produto-icon">🌹</span>
+        <div class="produto-name">Buquê Clássico</div>
+        <div class="produto-desc">Rosas, lírios e folhagens selecionadas. O presente que nunca envelhece. Disponível em tamanhos P, M e G.</div>
+        <div class="produto-preco">a partir de R$ 89</div>
+        <div class="produto-actions">
+          <a href="#" class="btn-small" onclick="abrirOrcamento('Buquê Clássico'); return false;">Solicitar orçamento</a>
+          <a href="#" class="btn-small btn-small-filled" onclick="abrirPedido('Buquê Clássico'); return false;">Fazer pedido</a>
+        </div>
+      </div>
+
+      <div class="produto-card reveal reveal-delay-1">
+        <span class="produto-icon">🌸</span>
+        <div class="produto-name">Arranjo de Mesa</div>
+        <div class="produto-desc">Para casamentos, aniversários ou só porque terça-feira merecia ser bonita. Flores da estação, sempre frescas.</div>
+        <div class="produto-preco">a partir de R$ 130</div>
+        <div class="produto-actions">
+          <a href="#" class="btn-small" onclick="abrirOrcamento('Arranjo de Mesa'); return false;">Solicitar orçamento</a>
+          <a href="#" class="btn-small btn-small-filled" onclick="abrirPedido('Arranjo de Mesa'); return false;">Fazer pedido</a>
+        </div>
+      </div>
+
+      <div class="produto-card reveal reveal-delay-2">
+        <span class="produto-icon">🌿</span>
+        <div class="produto-name">Cesta Selvagem</div>
+        <div class="produto-desc">Flores silvestres, ervas aromáticas e folhagens exóticas numa composição que parece ter crescido sozinha.</div>
+        <div class="produto-preco">a partir de R$ 160</div>
+        <div class="produto-actions">
+          <a href="#" class="btn-small" onclick="abrirOrcamento('Cesta Selvagem'); return false;">Solicitar orçamento</a>
+          <a href="#" class="btn-small btn-small-filled" onclick="abrirPedido('Cesta Selvagem'); return false;">Fazer pedido</a>
+        </div>
+      </div>
+
+      <div class="produto-card reveal reveal-delay-1">
+        <span class="produto-icon">💐</span>
+        <div class="produto-name">Decoração de Evento</div>
+        <div class="produto-desc">Cerimônias, formaturas, jantares. Montamos tudo: mesas, entradas, arcos florais. Consultoria inclusa.</div>
+        <div class="produto-preco">orçamento sob medida</div>
+        <div class="produto-actions">
+          <a href="#" class="btn-small" onclick="abrirOrcamento('Decoração de Evento'); return false;">Solicitar orçamento</a>
+          <a href="#" class="btn-small btn-small-filled" onclick="abrirReserva(); return false;">Quero reservar</a>
+        </div>
+      </div>
+
+      <div class="produto-card reveal reveal-delay-2">
+        <span class="produto-icon">🌺</span>
+        <div class="produto-name">Assinatura Semanal</div>
+        <div class="produto-desc">Receba flores frescas toda semana em casa ou no trabalho. Um ritual que você vai esperar toda segunda-feira.</div>
+        <div class="produto-preco">R$ 220 / mês</div>
+        <div class="produto-actions">
+          <a href="#" class="btn-small" onclick="abrirOrcamento('Assinatura Semanal'); return false;">Ver opções</a>
+          <a href="#" class="btn-small btn-small-filled" onclick="abrirPedido('Assinatura Semanal'); return false;">Fazer pedido</a>
+        </div>
+      </div>
+
+      <div class="produto-card reveal reveal-delay-3">
+        <span class="produto-icon">🕯️</span>
+        <div class="produto-name">Kit Presente</div>
+        <div class="produto-desc">Buquê + vela artesanal + cartão escrito à mão. Para quando as palavras precisam de flores para existir.</div>
+        <div class="produto-preco">a partir de R$ 195</div>
+        <div class="produto-actions">
+          <a href="#" class="btn-small" onclick="abrirOrcamento('Kit Presente'); return false;">Ver opções</a>
+          <a href="#" class="btn-small btn-small-filled" onclick="abrirPedido('Kit Presente'); return false;">Fazer pedido</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── DEPOIMENTOS ── -->
+<section id="depoimentos">
+  <div class="section-inner">
+    <p class="section-label reveal">Depoimentos</p>
+    <h2 class="section-title reveal reveal-delay-1">O que dizem<em> quem já recebeu.</em></h2>
+    <div class="depo-grid">
+
+      <div class="depo-card reveal">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Pedi um buquê de última hora e eles não só entregaram no prazo como estava mais lindo do que eu imaginava. Minha mãe ficou em lágrimas. O arranjo durou mais de duas semanas."</p>
+        <div class="depo-author">Mariana T.
+          <span>São Paulo · Cliente desde 2021</span>
+        </div>
+      </div>
+
+      <div class="depo-card reveal reveal-delay-1">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Decorei meu casamento inteiro com vocês. Cada detalhe foi tratado com cuidado absurdo. As fotos parecem de outra época — do jeito certo. Obrigado por tornarem o dia inesquecível."</p>
+        <div class="depo-author">Rafael & Camila
+          <span>Casamento · Outubro 2024</span>
+        </div>
+      </div>
+
+      <div class="depo-card reveal reveal-delay-2">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Assino o plano semanal há oito meses. Toda segunda minha mesa de trabalho tem flores novas. Parece frescal. Recomendo sem hesitar pra qualquer pessoa que queira se sentir menos cinza."</p>
+        <div class="depo-author">Beatriz N.
+          <span>Assinante semanal · desde 2024</span>
+        </div>
+      </div>
+
+      <div class="depo-card reveal reveal-delay-1">
+        <div class="depo-stars">★★★★☆</div>
+        <p class="depo-text">"A cesta selvagem que encomendei para minha avó foi um sucesso. Ela conhece flores e ficou impressionada com as variedades. Disse que nunca tinha visto flores tão frescas de uma floricultura."</p>
+        <div class="depo-author">Lucas M.
+          <span>Curitiba · Cliente esporádico</span>
+        </div>
+      </div>
+
+      <div class="depo-card reveal reveal-delay-2">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Fiz uma surpresa para minha namorada na véspera. Mandei mensagem às 22h e no dia seguinte às 11h o arranjo estava na porta dela. Atendimento impecável, flores perfeitas."</p>
+        <div class="depo-author">André P.
+          <span>São Paulo · Cliente desde 2023</span>
+        </div>
+      </div>
+
+      <div class="depo-card reveal reveal-delay-3">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Comprei o kit presente para minha melhor amiga. O cartão escrito à mão fez ela chorar antes mesmo de abrir o buquê. É esse nível de cuidado que diferencia vocês de qualquer outra floricultura."</p>
+        <div class="depo-author">Julia R.
+          <span>Cliente recorrente</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PEDIDO CTA ── -->
+<section id="pedido">
+  <div class="section-inner">
+    <div class="pedido-inner reveal">
+      <p class="section-label">Fazer pedido</p>
+      <h2 class="section-title">Prontos para<em> florescer juntos.</em></h2>
+      <p class="pedido-sub">Entrega no mesmo dia para pedidos até as 14h. Parcelamos em até 6x sem juros.</p>
+      <div class="pedido-actions">
+        <a href="#" class="btn-primary" onclick="abrirPedido(); return false;">Fazer pedido agora</a>
+        <a href="#produtos" class="btn-ghost">Ver opções</a>
+        <a href="#" class="btn-ghost" onclick="abrirOrcamento(); return false;">Solicitar orçamento</a>
+      </div>
+      <p class="pedido-note">Também atendemos pelo WhatsApp · (11) 99999-0000</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESERVA ── -->
+<section id="reserva">
+  <div class="section-inner">
+    <div class="reserva-grid">
+      <div class="reserva-info reveal">
+        <p class="section-label">Reservas</p>
+        <h2 class="section-title">Reserve sua<em> data agora.</em></h2>
+        <div class="divider"></div>
+        <p style="color:var(--cream-dim); font-size:1rem; margin-bottom:1.6rem;">Para eventos, casamentos e decorações grandes, bloqueie sua data com antecedência. Nossa agenda é limitada por escolha — cada evento merece atenção total.</p>
+        <div class="reserva-features">
+          <div class="reserva-feat">
+            <span class="reserva-feat-icon">🌱</span>
+            <div class="reserva-feat-text">
+              <strong>Consultoria gratuita</strong>
+              <p>Uma conversa de 30 minutos para entender sua visão antes de qualquer proposta.</p>
+            </div>
+          </div>
+          <div class="reserva-feat">
+            <span class="reserva-feat-icon">📅</span>
+            <div class="reserva-feat-text">
+              <strong>Data bloqueada</strong>
+              <p>Com 50% de entrada, sua data fica reservada exclusivamente para você.</p>
+            </div>
+          </div>
+          <div class="reserva-feat">
+            <span class="reserva-feat-icon">✉️</span>
+            <div class="reserva-feat-text">
+              <strong>Proposta em 48h</strong>
+              <p>Enviamos um orçamento detalhado em até dois dias úteis.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <p class="section-label" style="margin-top:0.4rem;">Formulário de reserva</p>
+        <div class="reserva-form">
+          <div class="form-group">
+            <label class="form-label">Nome completo</label>
+            <input type="text" class="form-input" placeholder="Seu nome">
+          </div>
+          <div class="form-group">
+            <label class="form-label">E-mail</label>
+            <input type="email" class="form-input" placeholder="seu@email.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">WhatsApp</label>
+            <input type="tel" class="form-input" placeholder="(11) 99999-0000">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tipo de evento</label>
+            <select class="form-select">
+              <option value="" disabled selected>Selecione...</option>
+              <option>Casamento</option>
+              <option>Aniversário</option>
+              <option>Formatura</option>
+              <option>Evento corporativo</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Data do evento</label>
+            <input type="date" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Observações</label>
+            <textarea class="form-textarea" placeholder="Conte um pouco sobre sua visão..."></textarea>
+          </div>
+          <button class="btn-primary" style="margin-top:0.4rem;" onclick="alert('Reserva enviada! Entraremos em contato em até 48h. 🌸')">Quero reservar esta data</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTATO ── -->
+<section id="contato">
+  <div class="section-inner">
+    <p class="section-label reveal">Contato</p>
+    <h2 class="section-title reveal reveal-delay-1">Fale com a gente<em> — sem cerimônias.</em></h2>
+    <div class="contato-grid">
+      <div class="contato-card reveal">
+        <span class="contato-card-icon">📍</span>
+        <div class="contato-card-label">Endereço</div>
+        <div class="contato-card-value">Rua das Magnólias, 42</div>
+        <div class="contato-card-sub">Vila Madalena · São Paulo · SP<br>Seg–Sáb 9h–18h · Dom 9h–13h</div>
+      </div>
+      <div class="contato-card reveal reveal-delay-1">
+        <span class="contato-card-icon">📱</span>
+        <div class="contato-card-label">WhatsApp & Telefone</div>
+        <div class="contato-card-value">(11) 99999-0000</div>
+        <div class="contato-card-sub">Respondemos em até 1h<br>durante horário comercial</div>
+      </div>
+      <div class="contato-card reveal reveal-delay-2">
+        <span class="contato-card-icon">✉️</span>
+        <div class="contato-card-label">E-mail</div>
+        <div class="contato-card-value">flores@thereisalight.com.br</div>
+        <div class="contato-card-sub">Para pedidos especiais e eventos<br>resposta em até 24h úteis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">There Is a <span>Light</span></div>
+  <p class="footer-tagline">"There is a light and it never goes out." — The Smiths, 1986</p>
+  <ul class="footer-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#reserva">Reservas</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 There Is a Light Floricultura. Feito com cuidado e flores.</p>
+</footer>
+
+<!-- ── MODAL: PEDIDO ── -->
+<div class="modal-overlay" id="modal-pedido" role="dialog" aria-modal="true" aria-labelledby="modal-pedido-title">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('modal-pedido')" aria-label="Fechar">Fechar ✕</button>
+    <div class="modal-title" id="modal-pedido-title">Fazer pedido</div>
+    <p class="modal-sub" id="modal-pedido-produto">Preencha os dados e entraremos em contato para confirmar.</p>
+    <div class="modal-form">
+      <div class="form-group">
+        <label class="form-label">Nome</label>
+        <input type="text" class="form-input" placeholder="Seu nome">
+      </div>
+      <div class="form-group">
+        <label class="form-label">WhatsApp</label>
+        <input type="tel" class="form-input" placeholder="(11) 99999-0000">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Produto de interesse</label>
+        <select class="form-select" id="modal-select-produto">
+          <option>Buquê Clássico</option>
+          <option>Arranjo de Mesa</option>
+          <option>Cesta Selvagem</option>
+          <option>Decoração de Evento</option>
+          <option>Assinatura Semanal</option>
+          <option>Kit Presente</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Data de entrega desejada</label>
+        <input type="date" class="form-input">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-primary" onclick="alert('Pedido enviado! Confirmaremos via WhatsApp em breve. 🌹'); fecharModal('modal-pedido')">Confirmar pedido</button>
+        <button class="btn-ghost" onclick="fecharModal('modal-pedido')">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL: ORÇAMENTO ── -->
+<div class="modal-overlay" id="modal-orcamento" role="dialog" aria-modal="true" aria-labelledby="modal-orc-title">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('modal-orcamento')" aria-label="Fechar">Fechar ✕</button>
+    <div class="modal-title" id="modal-orc-title">Solicitar orçamento</div>
+    <p class="modal-sub" id="modal-orcamento-produto">Conte o que você precisa e montamos uma proposta.</p>
+    <div class="modal-form">
+      <div class="form-group">
+        <label class="form-label">Nome</label>
+        <input type="text" class="form-input" placeholder="Seu nome">
+      </div>
+      <div class="form-group">
+        <label class="form-label">E-mail ou WhatsApp</label>
+        <input type="text" class="form-input" placeholder="Prefira como quiser ser contatado">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Descreva o que precisa</label>
+        <textarea class="form-textarea" placeholder="Produto, quantidade, data, ocasião..."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-primary" onclick="alert('Orçamento solicitado! Responderemos em até 24h úteis. 🌺'); fecharModal('modal-orcamento')">Enviar solicitação</button>
+        <button class="btn-ghost" onclick="fecharModal('modal-orcamento')">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ── Modais ── */
+  function abrirPedido(produto) {
+    if (produto) {
+      document.getElementById('modal-pedido-produto').textContent = 'Produto: ' + produto;
+      const sel = document.getElementById('modal-select-produto');
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].text === produto) { sel.selectedIndex = i; break; }
+      }
+    }
+    abrirModal('modal-pedido');
+  }
+  function abrirOrcamento(produto) {
+    if (produto) document.getElementById('modal-orcamento-produto').textContent = 'Produto: ' + produto;
+    abrirModal('modal-orcamento');
+  }
+  function abrirReserva() {
+    document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+  }
+  function abrirModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function fecharModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* Fechar ao clicar fora */
+  document.querySelectorAll('.modal-overlay').forEach(el => {
+    el.addEventListener('click', e => { if (e.target === el) fecharModal(el.id); });
+  });
+
+  /* Fechar com Escape */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(el => fecharModal(el.id));
+    }
+  });
+
+  /* ── Nav: compact ao rolar ── */
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ── Nav: link ativo por seção ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.35 });
+
+  sections.forEach(s => observer.observe(s));
+
+  /* ── Scroll reveal ── */
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  reveals.forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>
