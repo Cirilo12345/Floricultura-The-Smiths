@@ -1,18 +1,12 @@
-/* ═══════════════════════════════════════════════════════
-   There Is a Light — Floricultura
-   Stylesheet v2.0
-   ═══════════════════════════════════════════════════════ */
 
-/* ── RESET & BOX MODEL ── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ── DESIGN TOKENS ── */
+/* ── ROOT ── */
 :root {
-  /* Cores */
   --bg:           #111010;
   --bg2:          #1c1a18;
   --bg3:          #252220;
@@ -25,29 +19,23 @@
   --wine-glow:    rgba(139, 34, 82, 0.25);
   --brown:        #3d3328;
 
-  /* Tipografia */
   --serif: 'Playfair Display', Georgia, serif;
   --body:  'EB Garamond', Georgia, serif;
   --mono:  'DM Mono', monospace;
 
-  /* Espaçamentos */
   --section-pad: 6.5rem 2rem;
   --inner-max:   1080px;
 
-  /* Transições */
   --t-fast:   0.15s ease;
   --t-mid:    0.25s ease;
   --t-slow:   0.4s ease;
 
-  /* Sombras */
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.45);
   --shadow-wine: 0 4px 24px var(--wine-glow);
 }
 
 /* ── BASE ── */
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
@@ -59,22 +47,71 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Acessibilidade: foco visível */
 :focus-visible {
   outline: 2px solid var(--wine-light);
   outline-offset: 3px;
 }
 
-/* ── SCROLL REVEAL (base state) ── */
+.gladiola-petal {
+  position: fixed;
+  top: -120px;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform, opacity;
+  animation: gladiola-fall linear infinite;
+}
+
+.gladiola-petal img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: saturate(0.75) brightness(0.85);
+  border-radius: 50%;
+}
+
+@keyframes gladiola-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  6% {
+    opacity: 0.72;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(110vh) rotate(30deg) scale(0.85);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gladiola-petal { display: none; }
+}
+
+/* ══════════════════════════════════════════
+   GRAIN OVERLAY 8MM
+   Estética das capas fotográficas dos álbuns
+   ══════════════════════════════════════════ */
+.grain-layer {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.065'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+}
+
+/* ── SCROLL REVEAL ── */
 .reveal {
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 0.55s var(--t-slow), transform 0.55s var(--t-slow);
 }
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
+.reveal.visible { opacity: 1; transform: none; }
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
@@ -103,7 +140,6 @@ nav {
   transition: padding var(--t-mid), background var(--t-mid);
 }
 
-/* Nav compactada ao rolar */
 nav.scrolled {
   padding: 0.8rem 3rem;
   background: rgba(17, 16, 16, 0.98);
@@ -121,6 +157,16 @@ nav.scrolled {
 }
 .nav-logo:hover { opacity: 0.75; }
 .nav-logo span { color: var(--wine-light); }
+
+/* Ícone de gladíola ao lado do logo */
+.nav-logo::after {
+  content: ' ✿';
+  color: var(--wine);
+  font-style: normal;
+  font-size: 0.9rem;
+  transition: color var(--t-mid);
+}
+.nav-logo:hover::after { color: var(--wine-light); }
 
 .nav-links {
   display: flex;
@@ -140,7 +186,6 @@ nav.scrolled {
   transition: color var(--t-mid);
 }
 
-/* Sublinhado deslizante nos links da nav */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -151,11 +196,7 @@ nav.scrolled {
 }
 .nav-links a:hover { color: var(--cream); }
 .nav-links a:hover::after { width: 100%; }
-
-/* Link ativo (controlado via JS) */
-.nav-links a.active {
-  color: var(--cream);
-}
+.nav-links a.active { color: var(--cream); }
 .nav-links a.active::after { width: 100%; }
 
 /* ════════════════════════════════════
@@ -178,7 +219,7 @@ nav.scrolled {
   z-index: 0;
 }
 
-/* Noise sutil sobre o gradiente */
+/* Noise sobre o gradiente */
 .hero-bg::after {
   content: '';
   position: absolute;
@@ -189,16 +230,19 @@ nav.scrolled {
   pointer-events: none;
 }
 
-/* ── Disco de vinil ── */
+/* ══════════════════════════════════════════
+   DISCO DE VINIL — aprimorado
+   Com tonearm e label de álbum
+   ══════════════════════════════════════════ */
 .vinyl-wrap {
   position: absolute;
-  width: 460px;
-  height: 460px;
+  width: 480px;
+  height: 480px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -54%);
   z-index: 0;
-  opacity: 0.11;
+  opacity: 0.13;
   pointer-events: none;
 }
 
@@ -219,28 +263,75 @@ nav.scrolled {
   position: relative;
 }
 
-/* Etiqueta central vinho */
+/* Etiqueta central — estilo The Queen Is Dead */
 .vinyl::before {
   content: '';
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 90px; height: 90px;
+  width: 96px; height: 96px;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--wine-light) 0%, var(--wine) 60%);
-  opacity: 0.55;
+  background: radial-gradient(circle, #c9408a 0%, var(--wine) 55%, #5a1535 100%);
+  opacity: 0.65;
 }
 
-/* Furo central */
+/* Texto da etiqueta */
 .vinyl::after {
-  content: '';
+  content: 'The Queen Is Dead · 1986';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  font-family: var(--mono);
+  font-size: 0.3rem;
+  letter-spacing: 0.12em;
+  color: rgba(240, 232, 216, 0.8);
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* ── Furo central ── */
+.vinyl-hole {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 10px; height: 10px;
+  width: 11px; height: 11px;
   border-radius: 50%;
   background: var(--bg);
-  z-index: 1;
+  z-index: 3;
+}
+
+/* ── Tonearm ── */
+.tonearm {
+  position: absolute;
+  top: 38px;
+  right: -5px;
+  width: 110px;
+  height: 2px;
+  background: linear-gradient(to left, var(--cream-dim), #8a7a62);
+  transform-origin: right center;
+  transform: rotate(-30deg);
+  border-radius: 2px;
+  z-index: 4;
+}
+
+.tonearm::before {
+  content: '';
+  position: absolute;
+  right: -2px; top: -5px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--cream) 30%, var(--cream-dim) 100%);
+  box-shadow: 0 0 8px var(--wine-glow);
+}
+
+.tonearm::after {
+  content: '';
+  position: absolute;
+  left: 0; top: -1px;
+  width: 5px; height: 4px;
+  background: var(--cream-dim);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
 @keyframes spin {
@@ -310,12 +401,12 @@ nav.scrolled {
 }
 
 @keyframes fade-up {
-  to { opacity: 1; transform: none; }
+  to   { opacity: 1; transform: none; }
   from { opacity: 0; transform: translateY(18px); }
 }
 
 /* ════════════════════════════════════
-   BOTÕES
+   BOTÕES — com gladíola deslizante
    ════════════════════════════════════ */
 .btn-primary {
   font-family: var(--mono);
@@ -329,18 +420,35 @@ nav.scrolled {
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
+  position: relative;
+  overflow: hidden;
   transition:
     background var(--t-mid),
     border-color var(--t-mid),
     transform var(--t-fast),
-    box-shadow var(--t-mid);
+    box-shadow var(--t-mid),
+    padding-left var(--t-mid);
+}
+
+/* Gladíola deslizando da esquerda no hover */
+.btn-primary::before {
+  content: '✿';
+  position: absolute;
+  left: -22px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  opacity: 0.9;
+  transition: left var(--t-mid);
 }
 .btn-primary:hover {
   background: var(--wine-light);
   border-color: var(--wine-light);
   transform: translateY(-2px);
   box-shadow: var(--shadow-wine);
+  padding-left: 2.8rem;
 }
+.btn-primary:hover::before { left: 0.75rem; }
 .btn-primary:active { transform: translateY(0); }
 
 .btn-ghost {
@@ -440,9 +548,7 @@ section {
 /* ════════════════════════════════════
    SOBRE
    ════════════════════════════════════ */
-#sobre {
-  background: var(--bg2);
-}
+#sobre { background: var(--bg2); }
 
 .sobre-grid {
   display: grid;
@@ -476,7 +582,6 @@ section {
 }
 
 .sobre-stat {
-  border: none;
   padding: 1.5rem 1.8rem;
   background: var(--bg3);
   transition: background var(--t-mid);
@@ -502,11 +607,9 @@ section {
 }
 
 /* ════════════════════════════════════
-   PRODUTOS
+   PRODUTOS — com fotos reais
    ════════════════════════════════════ */
-#produtos {
-  background: var(--bg);
-}
+#produtos { background: var(--bg); }
 
 .produtos-grid {
   display: grid;
@@ -518,7 +621,6 @@ section {
 
 .produto-card {
   background: var(--bg2);
-  padding: 2.4rem 2rem;
   cursor: default;
   transition:
     background var(--t-mid),
@@ -537,6 +639,7 @@ section {
   height: 0;
   background: var(--wine-light);
   transition: height 0.3s ease;
+  z-index: 2;
 }
 .produto-card:hover::before { height: 100%; }
 
@@ -547,13 +650,60 @@ section {
   z-index: 1;
 }
 
-.produto-icon {
-  font-size: 2rem;
-  margin-bottom: 1.1rem;
-  display: block;
-  transition: transform 0.3s ease;
+/* ── Foto do produto (Polaroid style) ── */
+.produto-foto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
 }
-.produto-card:hover .produto-icon { transform: scale(1.15); }
+
+.produto-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.7) brightness(0.82) sepia(0.15);
+  transition: filter var(--t-slow), transform var(--t-slow);
+}
+
+/* Overlay tipo película */
+.produto-foto::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 55%, rgba(17,16,16,0.75) 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.produto-card:hover .produto-foto img {
+  filter: saturate(0.85) brightness(0.9) sepia(0.08);
+  transform: scale(1.04);
+}
+
+/* Número do produto estilo tira de filme */
+.produto-num {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: rgba(240, 232, 216, 0.5);
+  z-index: 2;
+}
+
+.produto-body {
+  padding: 1.6rem 2rem 2rem;
+}
 
 .produto-name {
   font-family: var(--serif);
@@ -583,12 +733,105 @@ section {
   flex-wrap: wrap;
 }
 
+/* ══════════════════════════════════════════
+   GALERIA FILMSTRIP
+   Tira de filme 8mm entre seções
+   ══════════════════════════════════════════ */
+.filmstrip-section {
+  padding: 0;
+  overflow: hidden;
+  background: #0a0808;
+  border-top: 1px solid rgba(61, 51, 40, 0.5);
+  border-bottom: 1px solid rgba(61, 51, 40, 0.5);
+  position: relative;
+}
+
+/* Furos laterais do filme */
+.filmstrip-section::before,
+.filmstrip-section::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 18px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #0a0808 0, #0a0808 6px,
+    #1e1a16 6px, #1e1a16 10px
+  );
+  z-index: 2;
+}
+.filmstrip-section::before { left: 0; }
+.filmstrip-section::after  { right: 0; }
+
+.filmstrip-track {
+  display: flex;
+  width: max-content;
+  animation: filmstrip-scroll 30s linear infinite;
+}
+.filmstrip-track:hover { animation-play-state: paused; }
+
+@keyframes filmstrip-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.film-frame {
+  width: 220px;
+  height: 140px;
+  flex-shrink: 0;
+  border-right: 3px solid #0a0808;
+  position: relative;
+  overflow: hidden;
+}
+
+.film-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.55) brightness(0.75) sepia(0.2);
+  transition: filter 0.4s ease;
+  display: block;
+}
+.film-frame:hover img {
+  filter: saturate(0.8) brightness(0.9) sepia(0.1);
+}
+
+/* Scanline sobre cada frame */
+.film-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,0.08) 3px,
+    rgba(0,0,0,0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Número do frame estilo Leica */
+.film-frame-num {
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+  font-family: var(--mono);
+  font-size: 0.45rem;
+  letter-spacing: 0.15em;
+  color: rgba(240, 232, 216, 0.4);
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filmstrip-track { animation: none; }
+}
+
 /* ════════════════════════════════════
    DEPOIMENTOS
    ════════════════════════════════════ */
-#depoimentos {
-  background: var(--bg2);
-}
+#depoimentos { background: var(--bg2); }
 
 .depo-grid {
   display: grid;
@@ -612,7 +855,6 @@ section {
   z-index: 1;
 }
 
-/* Aspas decorativas */
 .depo-card::before {
   content: '"';
   font-family: var(--serif);
@@ -626,7 +868,7 @@ section {
   pointer-events: none;
   transition: opacity var(--t-mid);
 }
-.depo-card:hover::before { opacity: 0.2; }
+.depo-card:hover::before { opacity: 0.22; }
 
 .depo-stars {
   color: var(--wine-light);
@@ -635,7 +877,6 @@ section {
   margin-bottom: 1.1rem;
 }
 
-/* Animação de estrelas no hover */
 .depo-card:hover .depo-stars {
   animation: star-pulse 0.4s ease;
 }
@@ -684,7 +925,6 @@ section {
   overflow: hidden;
 }
 
-/* Brilho vinho de fundo no CTA */
 #pedido::before {
   content: '';
   position: absolute;
@@ -729,9 +969,7 @@ section {
 /* ════════════════════════════════════
    RESERVA
    ════════════════════════════════════ */
-#reserva {
-  background: var(--bg);
-}
+#reserva { background: var(--bg); }
 
 .reserva-grid {
   display: grid;
@@ -785,7 +1023,6 @@ section {
   line-height: 1.55;
 }
 
-/* ── Formulário ── */
 .reserva-form {
   display: flex;
   flex-direction: column;
@@ -807,9 +1044,7 @@ section {
   color: var(--cream-dim);
   transition: color var(--t-fast);
 }
-.form-group:focus-within .form-label {
-  color: var(--cream);
-}
+.form-group:focus-within .form-label { color: var(--cream); }
 
 .form-input,
 .form-select,
@@ -837,7 +1072,6 @@ section {
   border-color: rgba(201, 185, 154, 0.32);
 }
 
-/* Cor do calendário nativa */
 .form-input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(0.6) sepia(1) saturate(0.5);
   cursor: pointer;
@@ -864,7 +1098,6 @@ section {
   color: rgba(201, 185, 154, 0.3);
 }
 
-/* Opções do select */
 .form-select option {
   background: var(--bg2);
   color: var(--cream);
@@ -873,9 +1106,7 @@ section {
 /* ════════════════════════════════════
    CONTATO
    ════════════════════════════════════ */
-#contato {
-  background: var(--bg2);
-}
+#contato { background: var(--bg2); }
 
 .contato-grid {
   display: grid;
@@ -971,6 +1202,15 @@ footer {
   font-size: 0.92rem;
   margin-bottom: 2rem;
   opacity: 0.8;
+}
+
+/* ── Gladíola decorativa no footer ── */
+.footer-gladiola {
+  display: block;
+  font-size: 1.4rem;
+  margin: 0 auto 1.4rem;
+  opacity: 0.5;
+  letter-spacing: 1.2rem;
 }
 
 .footer-links {
@@ -1093,7 +1333,6 @@ footer {
    ════════════════════════════════════ */
 @media (max-width: 960px) {
   :root { --section-pad: 5rem 2rem; }
-
   .sobre-grid { grid-template-columns: 1fr; gap: 3.5rem; }
   .reserva-grid { grid-template-columns: 1fr; gap: 3.5rem; }
   .produtos-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1117,7 +1356,6 @@ footer {
 
   .sobre-grid { gap: 2.5rem; }
   .modal { padding: 1.8rem 1.4rem; }
-
   .vinyl-wrap { width: 300px; height: 300px; }
 }
 
@@ -1130,7 +1368,7 @@ footer {
    PRINT
    ════════════════════════════════════ */
 @media print {
-  nav, .modal-overlay { display: none; }
+  nav, .modal-overlay, .gladiola-petal, .grain-layer, .filmstrip-section { display: none; }
   body { background: #fff; color: #111; }
   a { color: inherit; }
 }
