@@ -505,7 +505,7 @@ section {
 .produtos-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5px;
+  gap: 1.5rem;
   margin-top: 3rem;
   background: var(--cream-ghost);
 }
@@ -520,6 +520,9 @@ section {
     box-shadow var(--t-mid);
   position: relative;
   overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
 }
 
 /* Borda vinho animada no hover */
@@ -557,10 +560,12 @@ section {
 }
 
 .produto-desc {
-  font-size: 0.93rem;
-  color: var(--cream-dim);
-  margin-bottom: 1.3rem;
-  line-height: 1.65;
+  font-size: 0.93rem; color: var(--cream-dim); 
+  margin-bottom: 1.3rem; line-height: 1.65; 
+}
+
+.produto-desc {
+  flex: 1;
 }
 
 .produto-preco {
@@ -575,6 +580,7 @@ section {
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 /* ════════════════════════════════════
